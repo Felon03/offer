@@ -9,6 +9,12 @@
  * sibling 指向链表中的任意节点或者 nullptr
  */
 
+// 思路
+// 可以分为三步，实现较小空间复杂度的方法
+// 第一步：复制所有的节点，在原节点后面添加新复制的节点
+// 第二步：复制每个原节点指向的sibling
+// 第三步：拆分原节点和复制的节点
+
 #pragma once
 
 #include <iostream>
@@ -20,14 +26,6 @@ struct ListNode27 {
     ListNode27* sibling;
     ListNode27(int x) : val(x), next(nullptr), sibling(nullptr) { }
 };
-
-
-// 思路
-// 可以分为三步，实现较小空间复杂度的方法
-// 第一步：复制所有的节点，在原节点后面添加新复制的节点
-// 第二步：复制每个原节点指向的sibling
-// 第三步：拆分原节点和复制的节点
-
 
 class Solution27 {
 public:

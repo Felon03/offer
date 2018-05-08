@@ -8,10 +8,11 @@
  * case等关键字级条件判断语句(A?B:C)
  */
 
-#pragma once
 
 // 思路
 // 短路求值，递归思想
+
+#pragma once
 
 class Solution47 {
 public:

@@ -7,17 +7,17 @@
  * 输入一个链表，输出该链表中倒数第k个节点
  */
 
-#pragma once
-
-#include "ListNode.h"
-
-using list::ListNode;
-
 // 思路
 // 可以通过快慢指针的思想来解题
 // 设置两个指针，第一个指针先前进k个元素，此时两个指针之间的距离为k
 // 然后再让两个指针同时前进，当第一个指针指向尾节点时，第二个指针正
 // 好指向第k个节点
+
+#pragma once
+
+#include "ListNode.h"
+
+using list::ListNode;
 
 class Solution16 {
 public:

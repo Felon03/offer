@@ -8,15 +8,15 @@
  * 要求不能创建任何新节点，只能调整树中节点指针的指向
  */
 
+// 思路
+// 利用二叉树的中序遍历可以得到从大到小的顺序
+
 #pragma once
 
 #include "TreeNode.h"
 #include <iostream>
 
 using BinaryTreeNode = TreeNode;
-
-// 思路
-// 利用二叉树的中序遍历可以得到从大到小的顺序
 
 class Solution28 {
 public:

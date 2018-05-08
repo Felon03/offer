@@ -25,7 +25,7 @@ using std::vector;
 
 class Solution01 {
 public:
-    bool find(const vector<vector<int>> &matrix, int target)
+    bool find(const vector<vector<int>>& matrix, int target)
     {
         int rows = matrix.size();
         int cols = matrix[0].size();
