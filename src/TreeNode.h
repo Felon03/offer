@@ -9,6 +9,7 @@
 #pragma once
 #include <iostream>
 #include <queue>
+#include <stack>
 
 using std::cout;
 using std::queue;
@@ -60,6 +61,29 @@ void pre_order(TreeNode* root)
     pre_order(root->right);
 }
 
+// 先序遍历非递归
+void pre_order_iter(TreeNode* root)
+{
+    stack<TreeNode*> stk;
+    TreeNode* p = root;
+
+    while (p || !stk.empty())
+    {
+        while (p)
+        {
+            cout << p->val << " ";
+            stk.push(p);
+            p = p->left;
+        }
+        if (!stk.empty())
+        {
+            p = stk.top();
+            stk.pop();
+            p = p->right;
+        }
+    }
+}
+
 // 中序遍历二叉树
 void in_order(TreeNode* root)
 {
@@ -69,6 +93,29 @@ void in_order(TreeNode* root)
     in_order(root->right);
 }
 
+// 中序遍历非递归
+void in_order_iter(TreeNode* root)
+{
+    stack<TreeNode*> stk;
+    TreeNode* p = root;
+    
+    while (p || !stk.empty())
+    {
+        while (p)
+        {
+            stk.push(p);
+            p = p->left;
+        }
+        if (!stk.empty())
+        {
+            p = stk.top();
+            cout << p->val << " ";
+            stk.pop();
+            p = p->right;
+        }
+    }
+}
+
 // 后序遍历二叉树
 void post_order(TreeNode* root)
 {
@@ -76,6 +123,35 @@ void post_order(TreeNode* root)
     post_order(root->left);
     post_order(root->right);
     cout << root->val << " ";
+}
+
+// 后序遍历非递归
+void post_order_iter(TreeNode* root)
+{
+    if (!root) return;
+    stack<TreeNode*> stk;
+    TreeNode* cur;
+    TreeNode* pre = nullptr;
+    stk.push(root);
+
+    while (!stk.empty())
+    {
+        cur = stk.top();
+        if ((!cur->left && !cur->right) || (pre && (pre == cur->left || pre == cur->right)))
+        {
+            // 如果当前节点没有左右孩子或者孩子节点已经被访问过
+            cout << cur->val << " ";
+            stk.pop();
+            pre = cur;
+        }
+        else
+        {
+            if (cur->right)
+                stk.push(cur->right);
+            if (cur->left)
+                stk.push(cur->left);
+        }
+    }
 }
 
 // 层次遍历二叉树
